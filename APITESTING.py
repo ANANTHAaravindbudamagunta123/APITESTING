@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-
+import os
 app = Flask(__name__)
 
 # In-memory data store
@@ -67,5 +67,10 @@ def delete_item(item_id):
     items = new_list
     return jsonify({"message": "Item deleted"})
 
-if __name__ == '__main__':
-    app.run(debug=True)
+import os
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
+
+
