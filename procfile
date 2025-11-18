@@ -1,1 +1,1 @@
-web: python APITESTING.py
+web: gunicorn apitesting:app
